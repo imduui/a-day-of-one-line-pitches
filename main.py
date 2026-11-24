@@ -16,6 +16,10 @@ SENTENCE = (
 
 
 def main() -> None:
+    if not 1 <= len(SENTENCE) <= 240:
+        raise SystemExit("entry must be 1-240 characters")
+    if "\n" in SENTENCE or not SENTENCE.endswith("."):
+        raise SystemExit("entry must be a single sentence on one line")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(SENTENCE + "\n")
